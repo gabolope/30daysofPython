@@ -3,20 +3,20 @@ age = 31
 height = 1.83
 complex_number = 3 + 2j
 
-# 4
+# 4 Write a script that prompts the user to enter base and height of the triangle and calculate an area of this triangle (area = 0.5 x b x h).
 triangle_base = float(input('Enter triangle base '))
 triangle_height = float(input('Enter triangle height '))
 triangle_area = 0.5 * triangle_base * triangle_height
 print('The area of the triangle is: ', triangle_area)
 
-# 5
+# 5 Write a script that prompts the user to enter side a, side b, and side c of the triangle. Calculate the perimeter of the triangle (perimeter = a + b + c).
 side_a = float(input('Enter side A of triangle '))
 side_b = float(input('Enter side B of triangle '))
 side_c = float(input('Enter side C of triangle '))
 triangle_perimeter = side_a + side_b + side_c
 print('The perimeter of the triangle is: ', triangle_perimeter)
 
-# 6
+# 6 Get length and width of a rectangle using prompt. Calculate its area (area = length x width) and perimeter (perimeter = 2 x (length + width))
 rectangle_lenght = float(input('Enter rectangle lenght '))
 rectangle_height = float(input('Enter rectangle height '))
 rectangle_area = rectangle_lenght * rectangle_height
@@ -91,3 +91,4 @@ print('Your monthly income is ', pay)
 4 1 4 16 64
 5 1 5 25 125 
 """
+# Line n -> n, n raised to 0, n raised to 1, n raised to 2, n raised to 3

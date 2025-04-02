@@ -25,7 +25,7 @@ print(company.title())
 print(company.swapcase())
 
 # 9 Cut(slice) out the first word of Coding For All string.
-print(company[6:company_lenght])
+print(company[6:])
 
 # 10 Check if Coding For All string contains a word Coding using the method index, find or other methods.
 print(company.find('Coding') != -1)
@@ -50,7 +50,7 @@ print(company[0])
 print(company[-1])
 
 # 17 What character is at index 10 in "Coding For All" string.
-print(company[10])
+print(company[10]) 
 
 # 18 Create an acronym or an abbreviation for the name 'Python For Everyone'.
 print(company[0]+company[7]+company[11])
@@ -75,9 +75,9 @@ print(sentence.rindex('because'))
 
 # 25 Slice out the phrase 'because because because' in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
 sentence = 'You cannot end a sentence with because because because is a conjunction'
-initial = sentence.index('because')
+initial = sentence.index('because') - 1
 final = sentence.rindex('because') + len('because')
-print(sentence[0:initial] + sentence[final:len(sentence)])
+print(sentence[0:initial] + sentence[final:])
 
 # 26 Find the position of the first occurrence of the word 'because' in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
 
@@ -89,15 +89,15 @@ print(index == 0)
 
 # 29 Does 'Coding For All' end with a substring coding?
 index = company.rindex('Coding')
-print(index == (len(company) - len('Coding')))
+print(index == (len(company) - len('Coding'))) # arreglar
 
 # 30 '   Coding For All      '  , remove the left and right trailing spaces in the given string.
 company = '   Coding For All      '
 print(company.strip())
 
 # 31 Which one of the following variables return True when we use the method isidentifier():
-#    30DaysOfPython
-#    thirty_days_of_python
+#    30DaysOfPython # True
+#    thirty_days_of_python  
 
 # 32 The following list contains the names of some of python libraries: ['Django', 'Flask', 'Bottle', 'Pyramid', 'Falcon']. Join the list with a hash with space string.
 libraries =  ['Django', 'Flask', 'Bottle', 'Pyramid', 'Falcon']
@@ -109,3 +109,7 @@ print('# '.join(libraries))
 sentence_1 = 'I am enjoying this challenge.'
 sentence_2 = 'I just wonder what is next.'
 print(sentence_1)
+
+# 34 Use a tab escape sequence to write the following lines
+
+# 35 
