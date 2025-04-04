@@ -35,7 +35,7 @@ it_companies.append('Mercado Libre')
 print(it_companies) # ['Meta', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle', 'Amazon', 'Mercado Libre']
 
 # 12 Insert an IT company in the middle of the companies list
-middle = int(len(it_companies) / 2)
+middle = len(it_companies) // 2
 it_companies.insert(middle, 'Globant')
 print(it_companies) # ['Meta', 'Google', 'Microsoft', 'Apple', 'Globant', 'IBM', 'Oracle', 'Amazon', 'Mercado Libre']
 
