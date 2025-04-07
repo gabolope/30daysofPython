@@ -22,3 +22,46 @@ print(it_companies)
 # 5 What is the difference between remove and discard
 # it_companies.remove('Uala') # da error al no encontrarlo
 it_companies.discard('Uala') # no da error
+
+# Excersises: Level 2
+# 1 Join A and B
+C = A.union(B)
+print(C) # {19, 20, 22, 24, 25, 26, 27, 28}
+
+# 2 Find A intersection B
+print(A.intersection(B)) # {19, 20, 22, 24, 25, 26}
+
+# 3 Is A subset of B
+print(B.issubset(A)) # False
+
+# 4 Are A and B disjoint sets
+print(A.isdisjoint(B)) # False
+
+# 5 Join A with B and B with A
+print(A.union(B)) # {19, 20, 22, 24, 25, 26, 27, 28}
+print(B.union(A)) # {19, 20, 22, 24, 25, 26, 27, 28}
+
+# 6 What is the symmetric difference between A and B
+print(A.symmetric_difference(B)) # {27, 28}
+
+# 7 Delete the sets completely
+del A, B # borra los dos
+
+# Exercises: Level 3
+# 1 Convert the ages to a set and compare the length of the list and the set, which one is bigger?
+print(len(age)) # 8
+age = set(age)
+print(len(age)) # 5 porque no hay repetidos
+
+# 2 Explain the difference between the following data types: string, list, tuple and set
+# string: cadena de texto, se pueden aplicar métodos. 
+# list: [] se pueden cambiar. Varios tipos de items. Tienen index.
+# tuple: () no se pueden cambiar. Varios tipos de items. Tienen index.
+# set: {} se pueden cambiar. Solo un tipo de item. Sin index.
+
+# 3 I am a teacher and I love to inspire and teach people. How many unique words have been used in the sentence? Use the split methods and set to get the unique words.
+sentence = 'I am a teacher and I love to inspire and teach people'
+sentence = sentence.split(' ')
+sentence = set(sentence)
+print(sentence)
+print(len(sentence)) # 10
