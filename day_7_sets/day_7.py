@@ -16,7 +16,7 @@ it_companies.update(['Mercado Libre', 'Uala'])
 print(it_companies)
 
 # 4 Remove one of the companies from the set it_companies
-it_companies.remove('Uala')
+it_companies.remove('Uala') # se puede usar discard() o pop()
 print(it_companies)
 
 # 5 What is the difference between remove and discard
@@ -32,7 +32,7 @@ print(C) # {19, 20, 22, 24, 25, 26, 27, 28}
 print(A.intersection(B)) # {19, 20, 22, 24, 25, 26}
 
 # 3 Is A subset of B
-print(B.issubset(A)) # False
+print('level 2 3',A.issubset(B)) # True
 
 # 4 Are A and B disjoint sets
 print(A.isdisjoint(B)) # False
