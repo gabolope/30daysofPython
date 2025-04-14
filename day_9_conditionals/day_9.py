@@ -41,7 +41,7 @@ else:
     0-49, F 
 """
 score = int(input('Enter the student score: '))
-if score < 0 or score > 100:
+if score < 0 or score > 100: 
     print('You did not enter a number between 0 and 100.')
 elif score >= 80:
     print('The student got an A.')
@@ -72,7 +72,7 @@ else:
 # 3 The following list contains some fruits:
 # If a fruit doesn't exist in the list add the fruit to the list and print the modified list. If the fruit exists print('That fruit already exist in the list')
 fruits = ['banana', 'orange', 'mango', 'lemon']
-fruit = str(input('Enter a fruit: ').lower())
+fruit = str(input('Enter a fruit: ')).lower()
 
 if fruit in fruits:
     print('That fruit already exists in the list.')
@@ -107,7 +107,7 @@ else:
 if 'skills' in person and 'Python' in person['skills']:
     print('This person knows Python!')
 else:
-    print('This does not know Python.')
+    print('This person does not know Python.')
 
 # If a person skills has only JavaScript and React, print('He is a front end developer'), if the person skills has Node, Python, MongoDB, print('He is a backend developer'), if the person skills has React, Node and MongoDB, Print('He is a fullstack developer'), else print('unknown title') - for more accurate results more conditions can be nested!
 skills_set = set(person['skills']) # lo paso a set para que el orden en el que están las skills no afecte
@@ -121,7 +121,8 @@ else:
     print('Unkown title.')
 
 # If the person is married and if he lives in Finland, print the information in the following format:  Asabeneh Yetayeh lives in Finland. He is married.
-if person['is_marred'] == True and person['country'] == 'Finland':
-    print(person['first_name'], person['last_name'], 'is married and he lives in', person['country'])
+if person['is_marred'] == True:
+    if person['country'] == 'Finland':
+        print(person['first_name'], person['last_name'], 'is married and he lives in', person['country'])
 else:
     print('ni idea bo')
