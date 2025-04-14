@@ -60,7 +60,7 @@ months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'augus
 
 if month not in months:
     print('You did not enter a correct month.')
-elif month == 'december' or month == 'january' or month == 'february':
+elif month in ['december', 'january', 'february']:
     print('It is summer!')
 elif month == 'march' or month == 'april' or month == 'may':
     print('It is autumn!')
