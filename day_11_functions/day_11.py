@@ -78,3 +78,62 @@ def capitalize_list_items(lt):
 print('#10:', capitalize_list_items(fruits))
 
 # 11 Declare a function named add_item. It takes a list and an item parameters. It returns a list with the item added at the end.
+def add_item(list, item):
+    return list.append(item)
+add_item(fruits, 'coco')
+print('#11:', fruits)
+
+# 12 Declare a function named remove_item. It takes a list and an item parameters. It returns a list with the item removed from it.
+def remove_item(list, item):
+    return list.remove(item)
+remove_item(fruits, 'coco')
+print('#12:', fruits)
+
+# 13 Declare a function named sum_of_numbers. It takes a number parameter and it adds all the numbers in that range.
+def sum_of_numbers(num):
+    sum = 0
+    for i in range(num+1):
+        sum += i
+    return sum
+print('#13:', sum_of_numbers(35))
+
+# 14 Declare a function named sum_of_odds. It takes a number parameter and it adds all the odd numbers in that range.
+def sum_of_odds(num):
+    sum = 0
+    for i in range(num+1):
+        if i % 2 != 0:
+            sum += i
+    return sum
+print('#14:', sum_of_odds(40))
+
+
+# 15 Declare a function named sum_of_even. It takes a number parameter and it adds all the even numbers in that - range.
+def sum_of_evens(num):
+    sum = 0
+    for i in range(0, num+1, 2):
+        sum += i
+    return sum
+print('#15:', sum_of_evens(40))
+
+print('\n### Level 2 ###')
+# Exercises: Level 2
+# 1 Declare a function named evens_and_odds . It takes a positive integer as parameter and it counts number of evens and odds in the number.
+def evens_and_odds(num):
+    num = int(num)
+    if num < 0:
+        return 'Number must be positive'
+    else:
+        evens = 0
+        odds = 0
+        for i in range(num+1):
+            if i % 2 != 0:
+                odds += 1
+            else:
+                evens += 1
+        return odds, evens
+
+print('#1:', evens_and_odds(10))
+
+# 2 Call your function factorial, it takes a whole number as a parameter and it return a factorial of the number 
+def factorial(num):
+    pass
