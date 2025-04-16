@@ -81,6 +81,7 @@ for i in range(101):
     if (i % 2) != 0:
         print('#8:', i)
 
+print('\n### Level 2 ###')
 # Exercises: Level 2
 # 1 Use for loop to iterate from 0 to 100 and print the sum of all numbers.
 sum = 0
@@ -99,6 +100,7 @@ for i in range(101):
         odds += i
 print('#2: The sum of evens is:', evens, '. And the sum of odds is:', odds)
 
+print('\n### Level 3 ###')
 # Exercises: Level 3
 # 1 Go to the data folder and use the countries.py file. Loop through the countries and extract all the countries containing the word land.
 countries = [
@@ -2952,7 +2954,7 @@ for language in languages_set: # acá uso el set de lenguages, para evitarme los
     languages_dict[language] = count
 
 # ahora tengo que ordenar el dictionario de manera descendente según los vaules, esto es muy difícil ya que Python no tiene un método directo para hacerlo. Seguí este tutorial para entender como se puede hacer: https://www.freecodecamp.org/news/sort-dictionary-by-value-in-python/
-languages_count = sorted(languages_dict.items(), key = lambda x:x[1], reverse = True) # el primer parámetro del sorted() toma un iterable que se va a ordenar, en este caso es una lista de tuplas. El segundo parámetro toma una key que permite ordenar de manera indicada.
+languages_count = sorted(languages_dict.items(), key = lambda x:x[1], reverse = True) # el primer parámetro del sorted() toma un iterable que se va a ordenar, en este caso es una lista de tuplas. El segundo parámetro toma una key que permite ordenar de manera indicada, en este caso lamnbda es una función que recibe cada tupla y devuelve su segundo elemento (el número), que es lo que se usa como criterio de orden
 
 # el resultado de esto es una list de tuples, ahora hay que pasarlo a dict para presentarlo de mejor manera:
 languages_dict_sorted = dict(languages_count)
