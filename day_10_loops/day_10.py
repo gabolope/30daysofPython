@@ -62,7 +62,6 @@ while count < 8:
 9 x 9 = 81
 10 x 10 = 100 
 """
-count = 0 
 for i in range(11):
     result = str(i) + ' x ' + str(i) + ' = ' + str(i * i)
     print('#5:', result)
