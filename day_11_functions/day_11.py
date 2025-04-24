@@ -85,14 +85,17 @@ print('#11:', fruits)
 
 # 12 Declare a function named remove_item. It takes a list and an item parameters. It returns a list with the item removed from it.
 def remove_item(list, item):
+    if item not in list:
+        return 'Item not found'
     return list.remove(item)
+
 remove_item(fruits, 'coco')
 print('#12:', fruits)
 
 # 13 Declare a function named sum_of_numbers. It takes a number parameter and it adds all the numbers in that range.
 def sum_of_numbers(num):
     sum = 0
-    for i in range(num+1):
+    for i in range(num + 1):
         sum += i
     return sum
 print('#13:', sum_of_numbers(35))
@@ -100,7 +103,7 @@ print('#13:', sum_of_numbers(35))
 # 14 Declare a function named sum_of_odds. It takes a number parameter and it adds all the odd numbers in that range.
 def sum_of_odds(num):
     sum = 0
-    for i in range(num+1):
+    for i in range(num + 1):
         if i % 2 != 0:
             sum += i
     return sum
@@ -125,7 +128,7 @@ def evens_and_odds(num):
     else:
         evens = 0
         odds = 0
-        for i in range(num+1):
+        for i in range(num + 1):
             if i % 2 != 0:
                 odds += 1
             else:
@@ -138,16 +141,16 @@ print('#1:', evens_and_odds(10))
 def factorial(num):
     fact = 1
     for i in range(1, num + 1):
-        fact = fact * i
+        fact *= i
     return fact
 print('#2:', factorial(5))
 
 # 3 Call your function is_empty, it takes a parameter and it checks if it is empty or not
 def is_empty(obj):
     if obj:
-        return False
-    else:
         return True
+    else:
+        return False
 
 empty_list = list()
 empty_string = ''
@@ -164,8 +167,8 @@ def calculate_mean(lt):
     return sum / len(nums)
 print('#4a: mean', calculate_mean(nums))
 
-nums.sort()
 def calculate_median(lt):
+    nums.sort()
     middle = len(lt) // 2
     if len(lt) % 2 == 0:
         mean = lt[middle] + lt[middle +1 ] / 2
@@ -175,8 +178,9 @@ def calculate_median(lt):
 print('#4b: median', calculate_median(nums))
 
 nums = [1, 2, 2, 3, 4, 4, 4]
-conteo = dict()
+
 def calculate_mode(lt):
+    conteo = dict()
     for num in lt:
         if num in conteo:
             conteo[num] += 1
@@ -213,7 +217,7 @@ def calculate_variance(lt):
     return variance
 print('#4e: variance', calculate_variance(nums))
 
-def calculate_std(lt):
+def calculate_std(lt): # usar funcion dentro de funcion
     # es la raiz cuadrada de la varianza:
     total = 0
     for i in lt:
