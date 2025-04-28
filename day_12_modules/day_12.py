@@ -1,7 +1,7 @@
 print('\n### Level 1 ###')
 # Exercises: Level 1
 # 1 Write a function which generates a six digit/character random_user_id
-from random import choice, randint, shuffle
+from random import choice, randint, shuffle, sample
 from string import ascii_letters as letters, digits as numbers
 
 alphanumeric = letters + numbers
@@ -118,11 +118,10 @@ print('#1:', shuffle_list2(days))
 
 # 2 Write a function which returns an array of seven random numbers in a range of 0-9. All the numbers must be unique.
 def random_numbers():
-    array = ''
-    for _ in range(7):
-        for num in range(10):
-            num = str(num)
-            array.join(num)
-    return array
+    nums = list(range(10))
+    shuffle(nums)
+    return nums[:7]
 
+def randon_numbers():
+    return sample(range(10), 7)
 print('#2:', random_numbers())
