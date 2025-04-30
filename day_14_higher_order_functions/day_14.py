@@ -109,3 +109,63 @@ countries_with_E = list(filter(is_E, countries))
 print('#7:', countries_with_E)
 
 # 8 Chain two or more list iterators (eg. arr.map(callback).filter(callback).reduce(callback))
+resultado = reduce(
+    lambda a, b: a + b,
+    filter(
+        lambda x: x > 10,
+        map(
+            lambda x: x * 2,
+            numbers
+        )
+    )
+)
+
+print("#8:", resultado)
+
+# 9 Declare a function called get_string_lists which takes a list as a parameter and then returns a list containing only string items.
+various = ['naranja', 18, False, 'pomelo', sumar]
+def get_string_lists(lt):
+    return [i for i in lt if isinstance(i, str)] # isinstance es un metodo que devuelve True si el objeto es del tipo indicado
+    
+print('#9:', get_string_lists(various))
+
+# 10 Use reduce to sum all the numbers in the numbers list.
+total = reduce(sumar, numbers)
+print('#10:', total)
+
+# 11 Use reduce to concatenate all the countries and to produce this sentence: Estonia, Finland, Sweden, Denmark, Norway, and Iceland are north European countries
+def concatenate(a, b):
+    return a + ' ' + b
+
+# TODO: terminar este ejercicio
+
+sentence = reduce(concatenate, countries)
+print('#11:', sentence)
+
+# 12 Declare a function called categorize_countries that returns a list of countries with some common pattern (you can find the countries list in this repository as countries.js(eg 'land', 'ia', 'island', 'stan')).
+def categorize_countries(lt):
+    pass
+# TODO: terminar este ejercicio
+
+# 13 Create a function returning a dictionary, where keys stand for starting letters of countries and values are the number of country names starting with that letter.
+
+# TODO: terminar este ejercicio
+
+# 14 Declare a get_first_ten_countries function - it returns a list of first ten countries from the countries.js list in the data folder.
+def get_first_ten():
+    from countries import countries as countries_all
+    return countries_all[:10]
+print('#14:', get_first_ten())
+
+# 15 Declare a get_last_ten_countries function that returns the last ten countries in the countries list.
+def get_last_ten():
+    from countries import countries as countries_all
+    return countries_all[-10:]
+print('#15:', get_last_ten())
+
+print('\n### Level 3 ###')
+# Exercises: Level 3
+# Use the countries_data.py file and follow the tasks below:
+# Sort countries by name, by capital, by population
+# Sort out the ten most spoken languages by location.
+# Sort out the ten most populated countries.
