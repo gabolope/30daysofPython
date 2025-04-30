@@ -30,6 +30,15 @@ countries = [[('Finland', 'Helsinki')], [('Sweden', 'Stockholm')], [('Norway', '
 countries = [country for tpl in countries for country in tpl ]
 print('#4:', countries)
 
+#POPE:
+countries = [[('Finland', 'Helsinki')], [('Sweden', 'Stockholm')], [('Norway', 'Oslo')]]
+
+flattened_countries = [[country.upper(), country[0:3].upper(), city.upper()]
+                    for row in countries
+                        for (country, city) in row] 
+
+print(flattened_countries)
+
 # 5 Change the following list to a list of dictionaries:
 countries = [[('Finland', 'Helsinki')], [('Sweden', 'Stockholm')], [('Norway', 'Oslo')]]
 countries_dicts = [{'country': country_city[0], 'city': country_city[1]} for country_list in countries for country_city in country_list] # hecho por chat
