@@ -5,10 +5,16 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 print('\n### Level 1 ###')
 # Exercises: Level 1
 # 1 Explain the difference between map, filter, and reduce.
-'''Las 3 son funciones de alto orden propias de Python. Map toma una funcion y la aplica sobre un iterable, devuelve una lista con los objetos de la lista original modificados por la funcion. Filter toma como parametro una funcion que devuelve True o False, y dependiendo de eso agrega los objetos del iterable a la lista o no. Reduce tambien toma una funcion y un iterable, pero no devuelve una lista sino un solo objeto, aplica la funcion a los primeros dos elementos, luego al resultado con el siguiente objeto, y asi.'''
+'''Las 3 son funciones de alto orden propias de Python. 
+- Map toma una funcion y la aplica sobre un iterable, devuelve una lista con los objetos de la lista original modificados por la funcion. 
+- Filter toma como parametro una funcion que devuelve True o False, y dependiendo de eso agrega los objetos del iterable a la lista o no. 
+- Reduce tambien toma una funcion y un iterable, pero no devuelve una lista sino un solo objeto, aplica la funcion a los primeros dos elementos, luego al resultado con el siguiente objeto, y asi.'''
 
 # 2 Explain the difference between higher order function, closure and decorator
-'''Una HOF es una funcion que toma como parametro a otra funcion, o que devuelve una funcion. Closure es una variable que esta definida en el wrapper de una funcion anidada, que puede ser tambien tomada por la funcion interna. Decorator es una HOF que toma una funcion como parametro, la envuelve y modifica para dar otro resultado, pero no cambia a la funcion original. Los decoradores sirven para medir el tiempo de ejecucion de una funcion, para verificar permisos o autentificacion, para loggear funciones, para validar argumentos, etc. '''
+'''
+- Una HOF es una funcion que toma como parametro a otra funcion, o que devuelve una funcion. 
+- Closure es una variable que esta definida en el wrapper de una funcion anidada, que puede ser tambien tomada por la funcion interna.
+- Decorator es una HOF que toma una funcion como parametro, la envuelve y modifica para dar otro resultado, pero no cambia a la funcion original. Los decoradores sirven para medir el tiempo de ejecucion de una funcion, para verificar permisos o autentificacion, para loggear funciones, para validar argumentos, etc. '''
 
 import time
 
@@ -167,5 +173,7 @@ print('\n### Level 3 ###')
 # Exercises: Level 3
 # Use the countries_data.py file and follow the tasks below:
 # Sort countries by name, by capital, by population
+
 # Sort out the ten most spoken languages by location.
+
 # Sort out the ten most populated countries.
