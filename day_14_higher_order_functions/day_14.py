@@ -109,6 +109,7 @@ countries_with_E = list(filter(is_E, countries))
 print('#7:', countries_with_E)
 
 # 8 Chain two or more list iterators (eg. arr.map(callback).filter(callback).reduce(callback))
+# este modo de concatenacion que da como eg, es la forma en la que se hace en JavaScript. La idea del ejercicio es pasar esto a Pyhon. Para concatenar estas HOF en Py hay que anidar dentro de parentesis. 
 resultado = reduce(
     lambda a, b: a + b,
     filter(
@@ -134,22 +135,52 @@ total = reduce(sumar, numbers)
 print('#10:', total)
 
 # 11 Use reduce to concatenate all the countries and to produce this sentence: Estonia, Finland, Sweden, Denmark, Norway, and Iceland are north European countries
+# DIFICIL
 def concatenate(a, b):
-    return a + ' ' + b
+    return a + ', ' + b
 
-# TODO: terminar este ejercicio
+def make_sentence(lt):
+    sentence = reduce(concatenate, lt[:-1])
+    sentence += ' and ' + lt[-1]
+    sentence += ' are north European countries'
+    return sentence
 
-sentence = reduce(concatenate, countries)
-print('#11:', sentence)
+print('#11:', make_sentence(countries))
+
+# Version del CHAT:
+def make_sentence(lt):
+    sentence = reduce(lambda a, b: a + ', ' + b, lt[:-1])
+    return f'{sentence} and {lt[-1]} are north European countries'
 
 # 12 Declare a function called categorize_countries that returns a list of countries with some common pattern (you can find the countries list in this repository as countries.js(eg 'land', 'ia', 'island', 'stan')).
-def categorize_countries(lt):
-    pass
-# TODO: terminar este ejercicio
+from countries import countries as countries_all
+def categorize_countries(pattern, lt):
+    return f'List of countries with {pattern}: {list(filter(lambda i: pattern in i, lt))}'
+
+print('#12:', categorize_countries('land', countries_all))
 
 # 13 Create a function returning a dictionary, where keys stand for starting letters of countries and values are the number of country names starting with that letter.
 
-# TODO: terminar este ejercicio
+def countries_letters(lt):
+    letters = dict()
+    for i in lt:
+        first_letter = i[0]
+        if first_letter not in letters:
+            letters[first_letter] = 1
+        else:
+            letters[first_letter] += 1
+    return letters
+
+print('#13:', countries_letters(countries_all))
+
+# Esta es la forma mas leible para hacerlo. Pero se puede utilizar HOFs, aunque no sea muy organico:
+# Version del CHAT:
+def countries_letters(lt):
+    first_letters = map(lambda c: c[0], lt)
+    return reduce(lambda acc, letter: {**acc, letter: acc.get(letter, 0) + 1}, first_letters, {})
+# el metodo get es especifico para diccionarios, si no encuentra el item, devuelve 0. A lo que encuentre siempre le suma 1. 
+# el **acc crea un nuevo dict copiando todos los pares clave-valor. 
+
 
 # 14 Declare a get_first_ten_countries function - it returns a list of first ten countries from the countries.js list in the data folder.
 def get_first_ten():
@@ -167,5 +198,12 @@ print('\n### Level 3 ###')
 # Exercises: Level 3
 # Use the countries_data.py file and follow the tasks below:
 # Sort countries by name, by capital, by population
+from countries_data import countries_data
+def sort_countries(parameter, lt):
+    return sorted(lt, key = lambda x: x[parameter], reverse = True)
+
+print('#1:', sort_countries('population', countries_data)[:3])
+
 # Sort out the ten most spoken languages by location.
+
 # Sort out the ten most populated countries.
