@@ -110,8 +110,9 @@ def shuffle_list(lt):
     return shuffled_lt
 
 def shuffle_list2(lt):
-    shuffle(lt)
-    return lt
+    new_lt = lt.copy()
+    shuffle(new_lt)
+    return new_lt
 
 print('#1:', shuffle_list(days))
 print('#1:', shuffle_list2(days))
