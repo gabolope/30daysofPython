@@ -189,14 +189,13 @@ def countries_letters(lt):
 
 
 # 14 Declare a get_first_ten_countries function - it returns a list of first ten countries from the countries.js list in the data folder.
+from countries import countries as countries_all
 def get_first_ten():
-    from countries import countries as countries_all
     return countries_all[:10]
 print('#14:', get_first_ten())
 
 # 15 Declare a get_last_ten_countries function that returns the last ten countries in the countries list.
 def get_last_ten():
-    from countries import countries as countries_all
     return countries_all[-10:]
 print('#15:', get_last_ten())
 
