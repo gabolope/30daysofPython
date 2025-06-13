@@ -211,8 +211,17 @@ def sort_countries(parameter, lt):
 
 print('#1:', sort_countries('population', countries_data)[:3])
 
-
-
 # Sort out the ten most spoken languages by location.
 
+from collections import Counter
+
+def most_spoken(lt):
+    languages_list = list(map(lambda x : x['languages'], lt)) # obtengo todos los idiomas de manera repetida. 
+    languages_list_plain  = [language for row in languages_list for language in row] #aplano la lista
+    languages_counted = Counter(languages_list_plain).most_common(10) #utilizo Counter para contar cuantas veces esta cada item en una lista. most.common es un metodo dentro de Counter. 
+    return languages_counted
+
+print('#2:', most_spoken(countries_data))
+
 # Sort out the ten most populated countries.
+print('#3:', sort_countries('population', countries_data)[:10])
