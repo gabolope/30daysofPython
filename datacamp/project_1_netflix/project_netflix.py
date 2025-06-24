@@ -7,7 +7,7 @@ import os
 print(os.getcwd())
 
 # Read in the Netflix CSV as a DataFrame
-netflix_df = pd.read_csv('datacamp/project_netflix/netflix_data.csv')
+netflix_df = pd.read_csv('datacamp/project_1_netflix/netflix_data.csv')
 
 ######### FIRST TASK: Most frequent movie duration #########
 # first: slice the movies from de 90's
