@@ -1,5 +1,5 @@
 # 1 Get the current day, month, year, hour, minute and timestamp from datetime module
-from datetime import datetime, date
+from datetime import datetime
 now = datetime.now()
 print("#1:", now) # 2025-06-23 14:59:25.300242
 
@@ -26,3 +26,4 @@ print("#5: difference in seconds", now.timestamp())
 #   To get a timestamp of any activities in an application
 # Cuando se realiza una compra en una app, la funcion que realiza la compra toma un timestamp que guarda con el resto de la información.
 #   Adding posts on a blog
+
