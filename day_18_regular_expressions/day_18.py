@@ -6,7 +6,7 @@ paragraph = 'I love teaching. If you do not love teaching what else can you love
 import re
 from collections import Counter
 
-separator = r'[^\W]+' #\W significa cualquier caracter que no sea letra, numero o _. Y el + indica que se haga una o mas veces. El [^] indica el negativo de esto. 
+separator = r'[^\W]+' #\W significa cualquier caracter que no sea letra, numero o _. Y el + indica que se haga una o mas veces. El ^ indica el negativo de esto. 
 separator2 = r'[a-zA-z]+'
 
 paragraph_lt = re.findall(separator, paragraph) # guardo las palabras en una lista
