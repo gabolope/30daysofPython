@@ -39,14 +39,29 @@ str1 = '10_primeros_paises'
 str2 = 'paises+ciudades'
 str3 = 'mejores paises'
 str4 = 'mejores_paises'
-str5 = 'def'
-str6 = 'class'
+
 
 # dar condiciones para que devuelva nombres validos dentro de un texto.
-valid = r'^\d'
+valid = r'^[A-Za-z_][A-Za-z0-9_]*$' 
+
+# hacer una funcion que reciba el string y devuelva si es valido o no
+def valid_name(st):
+    is_valid = re.match(valid, st)
+    if is_valid:
+        print(f'{st} is a valid name for a variable.')
+    else:
+        print(f'{st} is NOT a valid name for a variable.')
+
+valid_name(str1)   
+valid_name(str2)   
+valid_name(str3)   
+valid_name(str4)   
 
 print('\n### Level 3 ###')
 # Exercises: Level 3
 # 1 Clean the following text. After cleaning, count three most frequent words in the string.
 sentence = '''%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as educa@ting &and& @emp%o@wering peo@ple. ;I found tea@ching m%o@re interesting tha@n any other %jo@bs. %Do@es thi%s mo@tivate yo@u to be a tea@cher!?'''
 
+cleaner = r'[^a-zA-Z0-9.,!? ]+'
+sentence_clean = re.sub(cleaner, '', sentence)
+print(sentence_clean)
