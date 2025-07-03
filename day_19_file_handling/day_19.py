@@ -24,47 +24,40 @@ with open('./day_19_file_handling/melina_trump_speech.txt') as melina:
 # 2 Read the countries_data.json data file in data directory, create a function that finds the ten most spoken languages
 import json
 from collections import Counter
-example = [{
-        "name": "a",
-        "capital": "Kabul",
-        "languages": [
-            "Pashto",
-            "Uzbek",
-            "Turkmen"
-        ],
-        "population": 1,
-        "flag": "https://restcountries.eu/data/afg.svg",
-        "currency": "Afghan afghani"
-    },
-{
-        "name": "b",
-        "capital": "Mariehamn",
-        "languages": [
-            "Swedish"
-        ],
-        "population": 2,
-        "flag": "https://restcountries.eu/data/ala.svg",
-        "currency": "Euro"
-    },
-{
-        "name": "c",
-        "capital": "Tirana",
-        "languages": [
-            "Albanian"
-        ],
-        "population": 3,
-        "flag": "https://restcountries.eu/data/alb.svg",
-        "currency": "Albanian lek"
-    }
-]
 
-def most_spoken(lt):
-    language_list = ''
-    count = Counter()
-    sorted_list = sorted(lt, key = lambda x: x['population'], reverse = True)
-    return sorted_list
+def most_spoken(path, num):
+    with open(path, encoding='utf-8') as file:
+        language_list = []
+        data_dict = json.load(file)  # load es para archivo y loads es para strings
+        for i in data_dict:
+            language_list.extend(i['languages']) # junta todos los idiomas en una lista
+        language_count = Counter(language_list)
+        language_sorted = language_count.most_common(num)
+        return language_sorted
 
-print(most_spoken(example))
+print('#2:', most_spoken('./day_19_file_handling/countries_data.json', 3))
 
-with open('./day_19_file_handling/countries_data.json') as countries_data:
-    pass
+# 3 Read the countries_data.json data file in data directory, create a function that creates a list of the ten most populated countries
+
+def most_populated(path, num):
+    with open(path, encoding='utf-8') as file:
+        data_dict = json.load(file)
+        data_sorted = sorted(data_dict, key= lambda x: x['population'], reverse= True)
+        countries_list = []
+        for dict in data_sorted[:num]:
+            countries_list.append({'country': dict['name'], 'population': dict['population']})
+        return countries_list
+
+print('#3:', most_populated('./day_19_file_handling/countries_data.json', 3))
+
+print('\n### Level 2 ###')
+# Exercises: Level 2
+# Extract all incoming email addresses as a list from the email_exchange_big.txt file.
+import re
+
+with open('./day_19_file_handling/email_exchanges_big.txt') as file:
+    text = file.read()
+    email_finder = r'From\s[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}' # Toma From + email
+    matches = re.findall(email_finder, text) # busco todos los que tengan el regex
+    email_list = [i.replace('From ', '') for i in matches] # quito el 'From ' de los strings
+    print(email_list[:10])
