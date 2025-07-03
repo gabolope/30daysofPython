@@ -52,7 +52,7 @@ print('#3:', most_populated('./day_19_file_handling/countries_data.json', 3))
 
 print('\n### Level 2 ###')
 # Exercises: Level 2
-# Extract all incoming email addresses as a list from the email_exchange_big.txt file.
+# 4 Extract all incoming email addresses as a list from the email_exchange_big.txt file.
 import re
 
 with open('./day_19_file_handling/email_exchanges_big.txt') as file:
@@ -60,4 +60,9 @@ with open('./day_19_file_handling/email_exchanges_big.txt') as file:
     email_finder = r'From\s[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}' # Toma From + email
     matches = re.findall(email_finder, text) # busco todos los que tengan el regex
     email_list = [i.replace('From ', '') for i in matches] # quito el 'From ' de los strings
-    print(email_list[:10])
+    print('#4:', email_list[:10])
+
+# 5 Find the most common words in the English language. Call the name of your function find_most_common_words, it will take two parameters - a string or a file and a positive integer, indicating the number of words. Your function will return an array of tuples in descending order. Check the output
+def find_most_common_words(file, int):
+    pass
+
