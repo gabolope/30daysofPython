@@ -143,4 +143,34 @@ print('#8', find_most_common_words('./day_19_file_handling/romeo_and_juliet.txt'
 import csv
 with open('./day_19_file_handling/hacker_news.csv', encoding='utf-8') as file:
     news = csv.reader(file, delimiter=',')
-    print(news)
+    line_count = 0
+    python = 0
+    Python = 0
+    javascript = 0
+    Javascript = 0
+    JavaScript = 0
+    Java = 0
+    for row in news:
+        if line_count == 0:
+            line_count += 1
+        else:
+            if 'python' in row[1]:
+                python += 1
+            if 'Python' in row[1]:
+                Python += 1
+            if 'javascript' in row[1]:
+                javascript += 1
+            if 'Javascript' in row[1]:
+                Javascript += 1
+            if 'JavaScript' in row[1]:
+                JavaScript += 1
+            if 'Java' in row[1] and 'JavaScript' not in row[1]:
+                Java += 1
+            line_count += 1
+    print('python:', python)
+    print('Python:', Python)
+    print('javascript:', javascript)
+    print('Javascript:', Javascript)
+    print('JavaScript:', JavaScript)
+    print('Java but not JavaScript:', Java)
+    
