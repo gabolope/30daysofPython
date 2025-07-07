@@ -50,6 +50,7 @@ def most_populated(path, num):
 
 print('#3:', most_populated('./day_19_file_handling/countries_data.json', 3))
 
+
 print('\n### Level 2 ###')
 # Exercises: Level 2
 # 4 Extract all incoming email addresses as a list from the email_exchange_big.txt file.
