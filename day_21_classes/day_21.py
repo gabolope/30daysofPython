@@ -38,33 +38,50 @@ class PersonAccount:
             self.lastname = lastname
             self.incomes = incomes
             self.expenses = expenses
-        def total_income(self):
-            t_i = 0
-            for i in self.incomes.items():
-                t_i += i[1]
-                return t_i
-        def account_info():
-            pass
-        def total_expense():
-            pass
-        def add_income():
-            pass
-        def add_expense():
-            pass
-        def account_balance():
-            pass
+
+        def account_info(self):
+            return self.firstname, self.lastname
+        
+        def total_income(self): 
+            self.income_total = 0
+            for income in self.incomes.items():
+                self.income_total += income[1] # ESTO ESTA MAL. NO ES NECESARIO GUARDAR LOS TOTALES COMO ATRIBUTOS
+            return self.income_total
+        
+        def total_expense(self):
+            return sum(self.expenses.values()) # FORMA MAS EFICIENTE DE HACERLO
+        
+        def add_income(self, new_income_name, new_income_value):
+            self.incomes[new_income_name] = new_income_value
+            return self.incomes
+        
+        def add_expense(self, new_expense_name, new_expense_value):
+            self.expenses[new_expense_name] = new_expense_value
+            return self.expenses
+        
+        def account_balance(self):
+            income_total = sum(self.incomes.values())
+            expense_total = sum(self.expenses.values())
+            return income_total - expense_total
+        
 
 user_incomes = {'sueldo': 600,
                 'changas': 200,
-                'inversiones': 100
+                'inversiones': 200
                 }
 
 user_expenses = {'alquiler': 200,
-                'seguro': 50,
+                'seguro': 100,
                 'servicios': 100,
-                'obra social': 50
+                'obra social': 100
                 }
 
 user_account = PersonAccount('Gabo', 'Lope', user_incomes, user_expenses)
 
-print(user_account.total_income())
+print('Usuario:', user_account.account_info())
+print('Entradas totales:', user_account.total_income())
+print('Gastos totales:', user_account.total_expense())
+print('Balance de la cuenta:', user_account.account_balance())
+print('Entradas actualizados:', user_account.add_income('Pintar casas', 400))
+print('Gastos actualizados:', user_account.add_expense('cuota social', 100))
+print('Balance de la cuenta:', user_account.account_balance())
