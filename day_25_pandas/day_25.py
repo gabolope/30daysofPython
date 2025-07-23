@@ -12,6 +12,7 @@ print(df.tail)
 
 # 4 Get the title column as pandas series
 titles = df['title']
+
 print('\n ##################')
 print(titles)
 
@@ -21,6 +22,5 @@ print(len(df.columns))
 print(df.shape)
 
 # Filter the titles which contain python
-print(df['python' in df['title']])
 # Filter the titles which contain JavaScript
 # Explore the data and make sense of it
