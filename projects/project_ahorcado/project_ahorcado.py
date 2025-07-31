@@ -7,7 +7,7 @@ word = requests.get(url).json()[0]
 
 word_len = len(word) 
 letters = list(string.ascii_lowercase)
-tries = word_len + 2
+tries = word_len + 4
 placeholder = ''.join(['_ '] * word_len)
 responses = list()
 
