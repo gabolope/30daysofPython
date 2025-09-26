@@ -1,7 +1,5 @@
 # Importar las librerías
-import matplotlib as plt
 import pandas as pd
-import numpy as np
 
 # Leer el archivo csv:
 schools = pd.read_csv('projects\DataCamp_projects\project_2_NYC_schools\schools.csv')
