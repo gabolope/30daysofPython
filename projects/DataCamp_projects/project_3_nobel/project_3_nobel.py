@@ -37,10 +37,43 @@ print('Década de USA:', max_decade_usa)
 
 
 # Which decade and Nobel Prize category combination had the highest proportion of female laureates?
+# Store this as a dictionary called max_female_dict where the decade is the key and the category is the value. There should only be one key:value pair.
 
-# hago un index doble: por década y por categoria
-nobel_indexed = nobel.set_index(['decade', 'category'])
+# Create a numeric female indicator (1 if Female, 0 otherwise) and compute
+# the proportion of female laureates per (decade, category) by taking the mean
+# of that indicator within each group.
+nobel['female'] = (nobel['sex'] == 'Female').astype(int)
 
-total_laureates_index = nobel_indexed.index.value_counts(sort=False)
+female_proportions = nobel.groupby(['decade', 'category'])['female'].mean()
 
-print(nobel_indexed['sex'].value_counts())
+# Find the (decade, category) with the highest female proportion
+max_idx = female_proportions.idxmax()  # returns a tuple (decade, category)
+max_decade, max_category = max_idx
+
+max_female_dict = {int(max_decade): max_category}
+
+print('decade', max_female_dict)
+
+# Minimal assertion to ensure the result matches the expected category
+assert max_female_dict[int(max_decade)] == 'Literature', (
+	f"Expected category 'Literature' for decade {int(max_decade)}, got '{max_female_dict[int(max_decade)]}'"
+)
+
+# Who was the first woman to receive a Nobel Prize, and in what category?
+
+first_woman = nobel[nobel['sex'] == 'Female']
+
+first_woman_name = first_woman.iloc[0]['full_name']
+first_woman_category = first_woman.iloc[0]['category']
+
+print('Primera mujer nombre:', first_woman_name)
+print('Primera mujer categoria:', first_woman_category)
+
+# Which individuals or organizations have won more than one Nobel Prize throughout the years?
+most_individuals = nobel['full_name'].value_counts()
+most_individuals = most_individuals[most_individuals > 1]
+
+repeat_list = list(most_individuals.index)
+
+
+
