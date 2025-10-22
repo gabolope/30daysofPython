@@ -36,3 +36,5 @@ crimes['age_group'] = pd.cut(crimes['Vict Age'], labels=labels, bins=bins)
 
 victim_ages = crimes['age_group'].value_counts()
 print(victim_ages)
+sns.histplot(data=crimes, x='age_group')
+plt.show()

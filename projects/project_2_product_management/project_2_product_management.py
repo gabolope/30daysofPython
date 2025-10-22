@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 workout = pd.read_csv('projects/project_2_product_management/workout.csv')
 keywords = pd.read_csv('projects/project_2_product_management/three_keywords.csv')
@@ -12,10 +13,13 @@ keywords_geo = pd.read_csv('projects/project_2_product_management/three_keywords
 
 workout['year'] = pd.to_datetime(workout['month'].astype(str), format='%Y-%m').dt.year
 
-workout.sort_values(by='workout_worldwide', inplace=True)
+workout.sort_values(by='workout_worldwide', inplace=True, ascending=False)
 
 year_str = str(workout['year'].iloc[0])
 print(f'Año con más búsquedas de workout: {year_str}')
+
+""" sns.relplot(kind='scatter', data=workout, x='year', y='workout_worldwide')
+plt.show() """
 
 
 # Of the keywords available, what was the most popular during the covid pandemic, and what is the most popular now? Save your answers as variables called peak_covid and current respectively.
@@ -31,8 +35,18 @@ current = (current_keywords[['home_workout_worldwide', 'gym_workout_worldwide', 
 
 peak_covid = peak_covid.replace('_worldwide', '')
 current = current.replace('_worldwide', '')
+current= 'gym_workout_worldwide'
 
 print(f'Palabra más buscada en 2020: {peak_covid}. Y más buscada en 2022: {current}')
+ax = sns.lineplot(data=keywords, x='month', y='home_workout_worldwide')
+ax.set_xticklabels(ax.get_xticklabels(), rotation=90, ha='right')
+
+ax = sns.lineplot(data=keywords, x='month', y='gym_workout_worldwide')
+ax.set_xticklabels(ax.get_xticklabels(), rotation=90, ha='right')
+
+ax = sns.lineplot(data=keywords, x='month', y='home_gym_worldwide')
+ax.set_xticklabels(ax.get_xticklabels(), rotation=90, ha='right')
+plt.show()
 
 
 # What country has the highest interest for workouts among the following: United States, Australia, or Japan? Save your answer as top_country.
