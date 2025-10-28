@@ -30,23 +30,33 @@ anormales = largo_raiz[filtro_anormales]
 # quito las anormales del df largo_raiz
 largo_raiz = largo_raiz[~filtro_anormales]
 
-# Hago gráfico
-largo_raiz_14 = largo_raiz[largo_raiz['dia'] < 15] # saco el dia 15
-sns.relplot(x='dia', y='largo', kind='line', data=largo_raiz_14, hue='genotipo', errorbar='sd')
+# Colores
+paleta = [ "#5075B0",'#F25912']
+sns.set_palette(paleta)
 
-# Nombres en los ejes
+# Grafico
+largo_raiz_14 = largo_raiz[largo_raiz['dia'] < 15] # saco el dia 15
+g = sns.relplot(x='dia', y='largo', kind='line', data=largo_raiz_14, hue='genotipo', errorbar='sd')
+
+# Ajustes
 plt.xlabel('Dia')
 plt.ylabel('Largo de raíz (mm)')
-# Ticks del x
 plt.xticks(ticks = range(1, 15))
-# hago que la escala Y arranca en el 0
 plt.ylim(0, None)
-#plt.show()
+
+new_labels = ['WT', 'SWAP A']
+for t, l in zip(g._legend.texts, new_labels):
+    t.set_text(l)
+
+# Cambiar título, posición y marco
+g._legend.set_title('Genotipo')
+g._legend.set_frame_on(True)
+g._legend.set_bbox_to_anchor((0.15, 0.95))  # posición dentro del gráfico
+g._legend._loc = 2  # 'upper left'
+plt.show()
 
 # Muetro las plantas anormales unicos, sin repetir
 anormales_unicos = anormales[['genotipo', 'placa', 'experimento', 'id_planta']].drop_duplicates()
-print("Plantas con crecimiento anormal de raíz (largo < 10 mm después de 10 días):")
-print(anormales_unicos)
 g = sns.catplot(x='genotipo', kind='count', data=anormales_unicos, order=['wt', 'sa'])
 g.set_xticklabels(['WT', 'SWAP A'])
 plt.title('Plantas con crecimiento anormal')

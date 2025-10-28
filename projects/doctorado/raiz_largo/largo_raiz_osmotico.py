@@ -20,12 +20,17 @@ largo_raiz['largo'] = largo_raiz['largo'].astype(float)
 largo_raiz['id_planta'] = largo_raiz['id_planta'].astype(str)
 largo_raiz['placa'] = largo_raiz['placa'].astype(str)
 
+
+# Colores
+paleta = [ "#5075B0",'#F25912']
+sns.set_palette(paleta)
+
 # Grafico de lineas:
 g = sns.relplot(kind='line', data=largo_raiz, x='dia', y='largo', hue='genotipo', errorbar='sd')
-# Nombres en los ejes
+
+# Ajustes
 plt.xlabel('Dia')
 plt.ylabel('Largo de raíz (mm)')
-# Ticks del x
 plt.xticks(ticks = range(1, 9))
 
 # Cambiar los nombres de la leyenda (manteniendo colores correctos)
