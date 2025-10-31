@@ -18,8 +18,6 @@ ds_jobs_transformed = ds_jobs.copy()
 #   Columns containing categories with only two factors must be stored as Booleans (bool).
 print(ds_jobs_transformed.dtypes)
 
-print(ds_jobs_transformed['relevant_experience'].value_counts(dropna=False))
-
 for name, serie in ds_jobs_transformed.items():
   if serie.nunique() == 2:
     print(f'{name} será cambiada a Boolean')
@@ -113,6 +111,3 @@ print('Despues', ds_jobs_transformed.size)
 
 print('Memoria antes: ', ds_jobs.memory_usage())
 print('Memoria ahora: ', ds_jobs_transformed.memory_usage())
-
-
-
