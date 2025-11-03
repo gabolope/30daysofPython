@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from thefuzz import process
+# from thefuzz import process
 
 price = pd.read_csv('projects/DataCamp_projects/project_6_airbnb/airbnb_price.csv')
 last_review = pd.read_csv('projects/DataCamp_projects/project_6_airbnb/airbnb_last_review.tsv', sep='\t')
@@ -18,8 +18,15 @@ print(most_recent)
 
 # How many of the listings are private rooms? Save this into any variable.
 print(room_type['room_type'].unique())
-# Hago limpieza con thefuzz
-room_list = ['entire home/apt', 'private room', 'shared room']
+
+room_type['room_type'] = room_type['room_type'].str.lower()
+print(room_type['room_type'].unique())
+
+private_rooms = (room_type['room_type'].value_counts())['private room']
+print(private_rooms) # 11356
+# 
+# Hago limpieza con thefuzz para practicar 
+""" room_list = ['entire home/apt', 'private room', 'shared room']
 
 for room in room_list:
   matches = process.extract(room, room_type['room_type'], limit=room_type.shape[0])
@@ -29,7 +36,7 @@ for room in room_list:
 
 print(room_type['room_type'].unique()) # ahora estan los datos limpios
 
-private_rooms = (room_type['room_type'].value_counts())['private room'] # 11356
+private_rooms = (room_type['room_type'].value_counts())['private room'] # 11356 """
 
 # What is the average listing price? Round to the nearest two decimal places and save into a variable.
 price['price'] = price['price'].str.replace(' dollars', '')
@@ -38,7 +45,12 @@ price['price'] = price['price'].astype(int)
 average_price = round(price['price'].mean(), 2) # 141.78
 
 # Combine the new variables into one DataFrame called review_dates with four columns in the following order: first_reviewed, last_reviewed, nb_private_rooms, and avg_price. The DataFrame should only contain one row of values.
-result_dict = {'first_reviewed': [earliest], 'last_reviewed': [last_review], 'nb_private_rooms': [private_rooms], 'avg_price': [average_price]}
+result_dict = {
+    'first_reviewed': [earliest],
+    'last_reviewed': [most_recent],
+    'nb_private_rooms': [private_rooms],
+    'avg_price': [average_price]
+}
 
 review_dates = pd.DataFrame(result_dict)
 print(review_dates)
