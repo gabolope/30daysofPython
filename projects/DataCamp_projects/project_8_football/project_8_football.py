@@ -58,7 +58,7 @@ else:
 # Resultado: los datos no son normales, hay que utilizar un test no paramétrico.
 
 # hago test de Mann Whitney U
-from scipy.stats import mannwhitneyu, kruskal
+from scipy.stats import mannwhitneyu
 
 u_stat, u_pval = mannwhitneyu(y=men_df['goals'], x=women_df['goals'], alternative='greater')
 
